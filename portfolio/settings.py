@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,6 +25,7 @@ SECRET_KEY = '#q0o)&u+n94jomjr+eynu_-u!-vxm&)cko=cwdz98iu0=o4xfe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ['princeportfolio.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
 
@@ -132,4 +133,4 @@ STATIC_ROOT =os.path.join(BASE_DIR, 'static') #Below and this static can have di
 STATIC_URL = '/static/'
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/mediasettingslink/'
- 
+django_heroku.settings(locals())
