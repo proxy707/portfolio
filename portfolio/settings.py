@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#q0o)&u+n94jomjr+eynu_-u!-vxm&)cko=cwdz98iu0=o4xfe'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://princeportfolio.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','princeportfolio.herokuapp.com']
 #ALLOWED_HOSTS = ['*']
 
 
@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
 
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfoliodb',
-        'USER':'postgres',
-        'PASSWORD':'princeg@ur98',
-        'HOST':'localhost',
-        'PORT':'5432',
+        db_from_env = dj_database_url.config(conn_max_age=600)
+        DATABASES['default'].update(db_from_env)
     }
 }
 
@@ -132,5 +128,5 @@ STATICFILES_DIRS =[ #DIRS-> which directory to see
 STATIC_ROOT =os.path.join(BASE_DIR, 'static') #Below and this static can have different names
 STATIC_URL = '/static/'
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
-MEDIA_URL ='/mediasettingslink/'
+MEDIA_URL ='/media/'
 django_heroku.settings(locals())
