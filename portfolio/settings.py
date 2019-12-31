@@ -25,8 +25,8 @@ SECRET_KEY = '#q0o)&u+n94jomjr+eynu_-u!-vxm&)cko=cwdz98iu0=o4xfe'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['princeportfolio.herokuapp.com','127.0.0.1']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://princeportfolio.herokuapp.com','127.0.0.1']
+#ALLOWED_HOSTS = ['*']
 
 
 # Application definition
