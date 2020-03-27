@@ -8,7 +8,6 @@ SECRET_KEY = '#q0o)&u+n94jomjr+eynu_-u!-vxm&)cko=cwdz98iu0=o4xfe'
 
 DEBUG = True
 
-#ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1','princeportfolio.herokuapp.com']
 ALLOWED_HOSTS = ['*']
 
 
@@ -56,17 +55,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
 
-
 DATABASES = {
- 'default':{
-
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'portfoliodb',
-        'USER':'postgres',
-        'PASSWORD':'princeg@ur98',
-        'HOST':'localhost',
-        'PORT':'5432',
- }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -111,3 +104,5 @@ STATIC_URL = '/static/'
 MEDIA_ROOT =os.path.join(BASE_DIR, 'media')
 MEDIA_URL ='/media/'
 django_heroku.settings(locals())
+
+CORS_ORIGIN_ALLOW_ALL = True
